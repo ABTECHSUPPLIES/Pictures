@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+        }
+        #model-list {
+            margin-bottom: 20px;
+        }
+        .iphone-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .iphone-card {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 200px;
+        }
+        .iphone-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .iphone-card h3 {
+            margin: 10px 0 5px;
+        }
+        .iphone-card p {
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>iPhone Gallery</h1>
+    <p>Select an iPhone model to view:</p>
+
+    <select id="model-list" onchange="loadImages(this.value)">
+        <option value="">-- Choose Model --</option>
+    </select>
+
+    <div class="iphone-container" id="iphone-gallery"></div>
+
+    <script>
+        const iphoneModels = {
+            "iPhone XS": ["xs1.jpg", "xs2.jpg"],
+            "iPhone XS Max": ["xsmax1.jpg", "xsmax2.jpg"],
+            "iPhone 11 Pro": ["11pro1.jpg", "11pro2.jpg"],
+            "iPhone 11 Pro Max": ["11promax1.jpg", "11promax2.jpg"],
+            "iPhone 12 Pro": ["12pro1.jpg", "12pro2.jpg"],
+            "iPhone 12 Pro Max": ["12promax1.jpg", "12promax2.jpg"],
+            "iPhone 13 Pro": ["13pro1.jpg", "13pro2.jpg"],
+            "iPhone 13 Pro Max": ["13promax1.jpg", "13promax2.jpg"],
+            "iPhone 14 Pro": ["14pro1.jpg", "14pro2.jpg"],
+            "iPhone 14 Pro Max": ["14promax1.jpg", "14promax2.jpg"],
+            "iPhone 15 Pro": ["15pro1.jpg", "15pro2.jpg"],
+            "iPhone 15 Pro Max": ["15promax1.jpg", "15promax2.jpg"],
+            "iPhone 16 Pro": ["16pro1.jpg", "16pro2.jpg"],
+            "iPhone 16 Pro Max": ["16promax1.jpg", "16promax2.jpg"]
+        };
+
+        // Load models into dropdown
+        const modelList = document.getElementById("model-list");
+        Object.keys(iphoneModels).forEach(model => {
+            let option = document.createElement("option");
+            option.value = model;
+            option.textContent = model;
+            modelList.appendChild(option);
+        });
+
+        function loadImages(model) {
+            const gallery = document.getElementById("iphone-gallery");
+            gallery.innerHTML = "";
+
+            if (!model) return;
+
+            iphoneModels[model].forEach(image => {
+                const card = document.createElement("div");
+                card.className = "iphone-card";
+                card.innerHTML = `
+                    <img src="images/${image}" alt="${model}">
+                    <h3>${model}</h3>
+                    <p>Apple's ${model} in stunning detail.</p>
+                `;
+                gallery.appendChild(card);
+            });
+        }
+    </script>
+
+</body>
+</html>
