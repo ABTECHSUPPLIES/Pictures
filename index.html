@@ -5,105 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iPhone Gallery</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-            background-color: #f5f5f5;
-        }
-        h1 {
-            color: #333;
-        }
-        #filters {
-            margin-bottom: 20px;
-        }
-        select, button {
-            padding: 10px;
-            margin: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border: none;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        select, button { margin: 10px; padding: 10px; font-size: 16px; }
+        #gallery { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+        .image-container { margin: 10px; }
+        img { width: 200px; height: 250px; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
 
-    <h1>iPhone Gallery</h1>
-    <p>Filter by Model & Color:</p>
+    <h2>Order Your iPhone</h2>
 
-    <div id="filters">
-        <select id="model-list" onchange="updateColors()">
-            <option value="">-- Choose Model --</option>
-        </select>
-        <select id="color-list">
-            <option value="">-- Choose Color --</option>
-        </select>
-        <button onclick="sendWhatsAppMessage()">Submit</button>
-    </div>
+    <label for="model">Select Model:</label>
+    <select id="model" onchange="updateGallery()">
+        <option value="">-- Choose Model --</option>
+        <option value="iPhone XS">iPhone XS</option>
+        <option value="iPhone XS Max">iPhone XS Max</option>
+        <option value="iPhone 11">iPhone 11</option>
+        <option value="iPhone 11 Pro">iPhone 11 Pro</option>
+        <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
+        <option value="iPhone 12">iPhone 12</option>
+        <option value="iPhone 12 Pro">iPhone 12 Pro</option>
+        <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
+        <option value="iPhone 13">iPhone 13</option>
+        <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+        <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
+        <option value="iPhone 14">iPhone 14</option>
+        <option value="iPhone 14 Pro">iPhone 14 Pro</option>
+        <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
+        <option value="iPhone 15">iPhone 15</option>
+        <option value="iPhone 15 Pro">iPhone 15 Pro</option>
+        <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
+        <option value="iPhone 16">iPhone 16</option>
+        <option value="iPhone 16 Pro">iPhone 16 Pro</option>
+        <option value="iPhone 16 Pro Max">iPhone 16 Pro Max</option>
+    </select>
+
+    <label for="color">Select Color:</label>
+    <select id="color" onchange="updateGallery()">
+        <option value="">-- Choose Color --</option>
+        <option value="Silver">Silver</option>
+        <option value="Graphite">Graphite</option>
+        <option value="Gold">Gold</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option>
+        <option value="Black">Black</option>
+        <option value="White">White</option>
+        <option value="Red">Red</option>
+    </select>
+
+    <div id="gallery"></div>
+
+    <button onclick="submitOrder()">Submit Order</button>
 
     <script>
-        const iphoneModels = {
-            "iPhone XS": { "Silver": [], "Space Gray": [], "Gold": [] },
-            "iPhone XS Max": { "Silver": [], "Gold": [], "Space Gray": [] },
-            "iPhone 11 Pro": { "Midnight Green": [], "Silver": [], "Space Gray": [] },
-            "iPhone 11 Pro Max": { "Gold": [], "Midnight Green": [], "Space Gray": [] },
-            "iPhone 12 Pro": { "Pacific Blue": [], "Graphite": [], "Gold": [], "Silver": [] },
-            "iPhone 13 Pro": { "Sierra Blue": [], "Gold": [], "Graphite": [], "Alpine Green": [] },
-            "iPhone 14 Pro": { "Deep Purple": [], "Silver": [], "Gold": [], "Space Black": [] },
-            "iPhone 15 Pro": { "Titanium Blue": [], "Titanium Black": [], "Titanium White": [], "Natural Titanium": [] },
-            "iPhone 16 Pro": { "Sunset Gold": [], "Space Black": [], "Titanium Gray": [], "Pearl White": [] }
-        };
+        function updateGallery() {
+            let model = document.getElementById("model").value;
+            let color = document.getElementById("color").value;
+            let gallery = document.getElementById("gallery");
 
-        const modelList = document.getElementById("model-list");
-        const colorList = document.getElementById("color-list");
+            gallery.innerHTML = ""; // Clear previous images
 
-        // Load models into dropdown
-        Object.keys(iphoneModels).forEach(model => {
-            let option = document.createElement("option");
-            option.value = model;
-            option.textContent = model;
-            modelList.appendChild(option);
-        });
+            if (model && color) {
+                let imagePath = `https://example.com/images/${model.replace(/\s+/g, '-')}-${color}.jpg`;
 
-        function updateColors() {
-            const selectedModel = modelList.value;
-            colorList.innerHTML = `<option value="">-- Choose Color --</option>`;
+                let imgContainer = document.createElement("div");
+                imgContainer.className = "image-container";
 
-            if (selectedModel) {
-                Object.keys(iphoneModels[selectedModel]).forEach(color => {
-                    let option = document.createElement("option");
-                    option.value = color;
-                    option.textContent = color;
-                    colorList.appendChild(option);
-                });
+                let img = document.createElement("img");
+                img.src = imagePath;
+                img.alt = `${model} in ${color}`;
+
+                imgContainer.appendChild(img);
+                gallery.appendChild(imgContainer);
             }
         }
 
-        function sendWhatsAppMessage() {
-            const selectedModel = modelList.value;
-            const selectedColor = colorList.value;
+        function submitOrder() {
+            let model = document.getElementById("model").value;
+            let color = document.getElementById("color").value;
 
-            if (!selectedModel || !selectedColor) {
-                alert("Please select a model and color before submitting.");
+            if (!model || !color) {
+                alert("Please select both model and color before submitting.");
                 return;
             }
 
-            const phoneNumber = "27688308314"; // +27 68 830 8314
-            const message = `Hello! I am interested in the ${selectedModel} in ${selectedColor}.`;
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodedMessage}`;
+            let phoneNumber = "+27688308314";
+            let message = `I want to order the ${model} in ${color}.`;
+            let encryptedMessage = btoa(message); // Base64 encryption to avoid blocking
 
-            window.location.href = whatsappURL; // Redirect to WhatsApp directly
+            let whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(atob(encryptedMessage))}`;
+
+            window.open(whatsappLink, "_blank");
         }
     </script>
 
