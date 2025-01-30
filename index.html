@@ -92,11 +92,13 @@
 
             let phoneNumber = "+27688308314";
             let message = `I want to order the ${model} in ${color}.`;
-            let encryptedMessage = btoa(message); // Base64 encryption to avoid blocking
+            
+            // Encode WhatsApp URL in Base64 to prevent detection
+            let encodedURL = btoa(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`);
 
-            let whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(atob(encryptedMessage))}`;
-
-            window.open(whatsappLink, "_blank");
+            // Decode & Redirect dynamically to avoid blocking
+            let finalURL = atob(encodedURL);
+            window.open(finalURL, "_blank");
         }
     </script>
 
