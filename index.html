@@ -73,7 +73,33 @@
             if (model && color) {
                 let formattedModel = model.replace(/\s+/g, '-').toLowerCase();
                 let formattedColor = color.replace(/\s+/g, '-').toLowerCase();
-                let imagePath = `https://yourimagehost.com/${formattedModel} ${formattedColor}.jpeg`;
+                let imagePath = {
+    "iPhone 15 Pro Black Titanium": "https://yourimagehost.com/IPhone 15 Pro Black Titanium.jpeg",
+    "iPhone 15 Pro max Black Titanium": "https://yourimagehost.com/IPhone 15 Pro max Black Titanium.jpeg",
+    "Iphone 11 green": "https://yourimagehost.com/Iphone 11 green.jpeg",
+    "Iphone 15 promax blue titanium": "https://yourimagehost.com/Iphone 15 promax blue titanium.jpeg",
+    "Iphone 15 Pro Max titanium": "https://yourimagehost.com/Iphone 15 Pro Max titanium.jpeg",
+    "Iphone 15 Pro white titanium": "https://yourimagehost.com/Iphone 15 Pro white titanium.jpeg",
+    "Iphone 15 pink": "https://yourimagehost.com/Iphone 15 pink.jpeg",
+    "iPhone 11 Pro Max midnight green": "https://yourimagehost.com/iPhone 11 Pro Max midnight green.jpeg",
+    "iPhone 11 Pro gold": "https://yourimagehost.com/iPhone 11 Pro gold.jpeg",
+    "iPhone 11 Pro max gold": "https://yourimagehost.com/iPhone 11 Pro max gold.jpeg",
+    "iPhone 11 Pro space gray": "https://yourimagehost.com/iPhone 11 Pro space gray.jpeg",
+    "iPhone 11 yellow": "https://yourimagehost.com/iPhone 11 yellow.jpeg",
+    "iPhone 12 Pro Graphite": "https://yourimagehost.com/iPhone 12 Pro Graphite.jpeg",
+    "iPhone 12 Pro Pacific Blue": "https://yourimagehost.com/iPhone 12 Pro Pacific Blue.jpeg",
+    "iPhone 12 pro gold": "https://yourimagehost.com/iPhone 12 pro gold.jpeg",
+    "iPhone 13 Pro max sierra blue": "https://yourimagehost.com/iPhone 13 Pro max sierra blue.jpeg",
+    "iPhone 13 Pro sierra blue": "https://yourimagehost.com/iPhone 13 Pro sierra blue.jpeg",
+    "iPhone 13 midnight": "https://yourimagehost.com/iPhone 13 midnight.jpeg",
+    "iPhone 13 pro Graphite": "https://yourimagehost.com/iPhone 13 pro Graphite.jpeg",
+    "iPhone 13 pro max Graphite": "https://yourimagehost.com/iPhone 13 pro max Graphite.jpeg",
+    "iPhone 13 starlight": "https://yourimagehost.com/iPhone 13 starlight.jpeg",
+    "iPhone 14 blue": "https://yourimagehost.com/iPhone 14 blue.jpeg",
+    "iPhone 14 starlight": "https://yourimagehost.com/iPhone 14 starlight.jpeg",
+    "iPhone 15 black": "https://yourimagehost.com/iPhone 15 black.jpeg",
+    "iPhone XS space gray": "https://yourimagehost.com/iPhone XS space gray.jpeg",
+}[`${model} ${color}`] || "";
 
                 let imgContainer = document.createElement("div");
                 imgContainer.className = "image-container";
