@@ -73,7 +73,7 @@
             if (model && color) {
                 let formattedModel = model.replace(/\s+/g, '-').toLowerCase();
                 let formattedColor = color.replace(/\s+/g, '-').toLowerCase();
-                let imagePath = `https://yourimagehost.com/${formattedModel}-${formattedColor}.jpeg`;
+                let imagePath = `https://yourimagehost.com/${formattedModel} ${formattedColor}.jpeg`;
 
                 let imgContainer = document.createElement("div");
                 imgContainer.className = "image-container";
