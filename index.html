@@ -19,43 +19,43 @@
     <label for="model">Select Model:</label>
     <select id="model" onchange="updateGallery()">
         <option value="">-- Choose Model --</option>
-        <option value="iphone 12">iPhone 12</option>
-        <option value="iphone 12 pro">iPhone 12 Pro</option>
-        <option value="iphone 12 pro max">iPhone 12 Pro Max</option>
-        <option value="iphone 13">iPhone 13</option>
-        <option value="iphone 13 pro">iPhone 13 Pro</option>
-        <option value="iphone 13 pro max">iPhone 13 Pro Max</option>
-        <option value="iphone 14">iPhone 14</option>
-        <option value="iphone 14 pro">iPhone 14 Pro</option>
-        <option value="iphone 14 pro max">iPhone 14 Pro Max</option>
-        <option value="iphone 15">iPhone 15</option>
-        <option value="iphone 15 pro">iPhone 15 Pro</option>
-        <option value="iphone 15 pro max">iPhone 15 Pro Max</option>
-        <option value="iphone xs">iPhone XS</option>
-        <option value="iphone xs max">iPhone XS Max</option>
-        <option value="iphone 11">iPhone 11</option>
-        <option value="iphone 11 pro">iPhone 11 Pro</option>
-        <option value="iphone 11 pro max">iPhone 11 Pro Max</option>
+        <option value="iPhone 12">iPhone 12</option>
+        <option value="iPhone 12 Pro">iPhone 12 Pro</option>
+        <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
+        <option value="iPhone 13">iPhone 13</option>
+        <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+        <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
+        <option value="iPhone 14">iPhone 14</option>
+        <option value="iPhone 14 Pro">iPhone 14 Pro</option>
+        <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
+        <option value="iPhone 15">iPhone 15</option>
+        <option value="iPhone 15 Pro">iPhone 15 Pro</option>
+        <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
+        <option value="iPhone XS">iPhone XS</option>
+        <option value="iPhone XS Max">iPhone XS Max</option>
+        <option value="iPhone 11">iPhone 11</option>
+        <option value="iPhone 11 Pro">iPhone 11 Pro</option>
+        <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
     </select>
 
     <label for="color">Select Color:</label>
     <select id="color" onchange="updateGallery()">
         <option value="">-- Choose Color --</option>
-        <option value="black">Black</option>
-        <option value="blue">Blue</option>
-        <option value="green">Green</option>
-        <option value="gold">Gold</option>
-        <option value="graphite">Graphite</option>
-        <option value="midnight">Midnight</option>
-        <option value="pink">Pink</option>
-        <option value="purple">Purple</option>
-        <option value="red">Red</option>
-        <option value="silver">Silver</option>
-        <option value="space gray">Space Gray</option>
-        <option value="starlight">Starlight</option>
-        <option value="titanium">Titanium</option>
-        <option value="white">White</option>
-        <option value="yellow">Yellow</option>
+        <option value="Black">Black</option>
+        <option value="Blue">Blue</option>
+        <option value="Green">Green</option>
+        <option value="Gold">Gold</option>
+        <option value="Graphite">Graphite</option>
+        <option value="Midnight">Midnight</option>
+        <option value="Pink">Pink</option>
+        <option value="Purple">Purple</option>
+        <option value="Red">Red</option>
+        <option value="Silver">Silver</option>
+        <option value="Space Gray">Space Gray</option>
+        <option value="Starlight">Starlight</option>
+        <option value="Titanium">Titanium</option>
+        <option value="White">White</option>
+        <option value="Yellow">Yellow</option>
     </select>
 
     <div id="gallery"></div>
@@ -71,44 +71,22 @@
             gallery.innerHTML = ""; // Clear previous images
 
             if (model && color) {
-                let formattedModel = model.replace(/\s+/g, '-').toLowerCase();
-                let formattedColor = color.replace(/\s+/g, '-').toLowerCase();
-                let imagePath = {
-    "iPhone 15 Pro Black Titanium": "https://yourimagehost.com/IPhone 15 Pro Black Titanium.jpeg",
-    "iPhone 15 Pro max Black Titanium": "https://yourimagehost.com/IPhone 15 Pro max Black Titanium.jpeg",
-    "Iphone 11 green": "https://yourimagehost.com/Iphone 11 green.jpeg",
-    "Iphone 15 promax blue titanium": "https://yourimagehost.com/Iphone 15 promax blue titanium.jpeg",
-    "Iphone 15 Pro Max titanium": "https://yourimagehost.com/Iphone 15 Pro Max titanium.jpeg",
-    "Iphone 15 Pro white titanium": "https://yourimagehost.com/Iphone 15 Pro white titanium.jpeg",
-    "Iphone 15 pink": "https://yourimagehost.com/Iphone 15 pink.jpeg",
-    "iPhone 11 Pro Max midnight green": "https://yourimagehost.com/iPhone 11 Pro Max midnight green.jpeg",
-    "iPhone 11 Pro gold": "https://yourimagehost.com/iPhone 11 Pro gold.jpeg",
-    "iPhone 11 Pro max gold": "https://yourimagehost.com/iPhone 11 Pro max gold.jpeg",
-    "iPhone 11 Pro space gray": "https://yourimagehost.com/iPhone 11 Pro space gray.jpeg",
-    "iPhone 11 yellow": "https://yourimagehost.com/iPhone 11 yellow.jpeg",
-    "iPhone 12 Pro Graphite": "https://yourimagehost.com/iPhone 12 Pro Graphite.jpeg",
-    "iPhone 12 Pro Pacific Blue": "https://yourimagehost.com/iPhone 12 Pro Pacific Blue.jpeg",
-    "iPhone 12 pro gold": "https://yourimagehost.com/iPhone 12 pro gold.jpeg",
-    "iPhone 13 Pro max sierra blue": "https://yourimagehost.com/iPhone 13 Pro max sierra blue.jpeg",
-    "iPhone 13 Pro sierra blue": "https://yourimagehost.com/iPhone 13 Pro sierra blue.jpeg",
-    "iPhone 13 midnight": "https://yourimagehost.com/iPhone 13 midnight.jpeg",
-    "iPhone 13 pro Graphite": "https://yourimagehost.com/iPhone 13 pro Graphite.jpeg",
-    "iPhone 13 pro max Graphite": "https://yourimagehost.com/iPhone 13 pro max Graphite.jpeg",
-    "iPhone 13 starlight": "https://yourimagehost.com/iPhone 13 starlight.jpeg",
-    "iPhone 14 blue": "https://yourimagehost.com/iPhone 14 blue.jpeg",
-    "iPhone 14 starlight": "https://yourimagehost.com/iPhone 14 starlight.jpeg",
-    "iPhone 15 black": "https://yourimagehost.com/iPhone 15 black.jpeg",
-    "iPhone XS space gray": "https://yourimagehost.com/iPhone XS space gray.jpeg",
-}[`${model} ${color}`] || "";
+                let formattedModel = model.replace(/\s+/g, '_');
+                let formattedColor = color.replace(/\s+/g, '_');
+                let imagePath = `https://raw.githubusercontent.com/ABTECHSUPPLIES/Pictures/main/${formattedModel}_${formattedColor}.jpeg`;
 
                 let imgContainer = document.createElement("div");
                 imgContainer.className = "image-container";
-
+                
                 let img = document.createElement("img");
                 img.src = imagePath;
                 img.alt = `${model} in ${color}`;
-
+                
+                let description = document.createElement("p");
+                description.innerText = `${model} in ${color}`;
+                
                 imgContainer.appendChild(img);
+                imgContainer.appendChild(description);
                 gallery.appendChild(imgContainer);
             }
         }
@@ -125,11 +103,7 @@
             let phoneNumber = "+27688308314";
             let message = `I want to order the ${model} in ${color}.`;
             
-            // Encode WhatsApp URL in Base64 to prevent detection
-            let encodedURL = btoa(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`);
-
-            // Decode & Redirect dynamically to avoid blocking
-            let finalURL = atob(encodedURL);
+            let finalURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(finalURL, "_blank");
         }
     </script>
