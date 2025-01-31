@@ -19,43 +19,43 @@
     <label for="model">Select Model:</label>
     <select id="model" onchange="updateGallery()">
         <option value="">-- Choose Model --</option>
-        <option value="iPhone 12">iPhone 12</option>
-        <option value="iPhone 12 Pro">iPhone 12 Pro</option>
-        <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
-        <option value="iPhone 13">iPhone 13</option>
-        <option value="iPhone 13 Pro">iPhone 13 Pro</option>
-        <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
-        <option value="iPhone 14">iPhone 14</option>
-        <option value="iPhone 14 Pro">iPhone 14 Pro</option>
-        <option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
-        <option value="iPhone 15">iPhone 15</option>
-        <option value="iPhone 15 Pro">iPhone 15 Pro</option>
-        <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
-        <option value="iPhone XS">iPhone XS</option>
-        <option value="iPhone XS Max">iPhone XS Max</option>
-        <option value="iPhone 11">iPhone 11</option>
-        <option value="iPhone 11 Pro">iPhone 11 Pro</option>
-        <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
+        <option value="iphone 12">iPhone 12</option>
+        <option value="iphone 12 pro">iPhone 12 Pro</option>
+        <option value="iphone 12 pro max">iPhone 12 Pro Max</option>
+        <option value="iphone 13">iPhone 13</option>
+        <option value="iphone 13 pro">iPhone 13 Pro</option>
+        <option value="iphone 13 pro max">iPhone 13 Pro Max</option>
+        <option value="iphone 14">iPhone 14</option>
+        <option value="iphone 14 pro">iPhone 14 Pro</option>
+        <option value="iphone 14 pro max">iPhone 14 Pro Max</option>
+        <option value="iphone 15">iPhone 15</option>
+        <option value="iphone 15 pro">iPhone 15 Pro</option>
+        <option value="iphone 15 pro max">iPhone 15 Pro Max</option>
+        <option value="iphone xs">iPhone XS</option>
+        <option value="iphone xs max">iPhone XS Max</option>
+        <option value="iphone 11">iPhone 11</option>
+        <option value="iphone 11 pro">iPhone 11 Pro</option>
+        <option value="iphone 11 pro max">iPhone 11 Pro Max</option>
     </select>
 
     <label for="color">Select Color:</label>
     <select id="color" onchange="updateGallery()">
         <option value="">-- Choose Color --</option>
-        <option value="Black">Black</option>
-        <option value="Blue">Blue</option>
-        <option value="Green">Green</option>
-        <option value="Gold">Gold</option>
-        <option value="Graphite">Graphite</option>
-        <option value="Midnight">Midnight</option>
-        <option value="Pink">Pink</option>
-        <option value="Purple">Purple</option>
-        <option value="Red">Red</option>
-        <option value="Silver">Silver</option>
-        <option value="Space Gray">Space Gray</option>
-        <option value="Starlight">Starlight</option>
-        <option value="Titanium">Titanium</option>
-        <option value="White">White</option>
-        <option value="Yellow">Yellow</option>
+        <option value="black">Black</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="gold">Gold</option>
+        <option value="graphite">Graphite</option>
+        <option value="midnight">Midnight</option>
+        <option value="pink">Pink</option>
+        <option value="purple">Purple</option>
+        <option value="red">Red</option>
+        <option value="silver">Silver</option>
+        <option value="space gray">Space Gray</option>
+        <option value="starlight">Starlight</option>
+        <option value="titanium">Titanium</option>
+        <option value="white">White</option>
+        <option value="yellow">Yellow</option>
     </select>
 
     <div id="gallery"></div>
@@ -71,7 +71,9 @@
             gallery.innerHTML = ""; // Clear previous images
 
             if (model && color) {
-                let imagePath = `https://yourimagehost.com/${model.toLowerCase().replace(/\s+/g, '-')}-${color.toLowerCase().replace(/\s+/g, '-')}.jpeg`;
+                let formattedModel = model.replace(/\s+/g, '-').toLowerCase();
+                let formattedColor = color.replace(/\s+/g, '-').toLowerCase();
+                let imagePath = `https://yourimagehost.com/${formattedModel}-${formattedColor}.jpeg`;
 
                 let imgContainer = document.createElement("div");
                 imgContainer.className = "image-container";
