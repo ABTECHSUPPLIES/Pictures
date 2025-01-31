@@ -71,9 +71,9 @@
             gallery.innerHTML = ""; // Clear previous images
 
             if (model && color) {
-                let formattedModel = model.replace(/\s+/g, '_');
-                let formattedColor = color.replace(/\s+/g, '_');
-                let imagePath = `https://raw.githubusercontent.com/ABTECHSUPPLIES/Pictures/main/${formattedModel}_${formattedColor}.jpeg`;
+                let formattedModel = model.toLowerCase().replace(/\s+/g, '');
+                let formattedColor = color.toLowerCase();
+                let imagePath = `${formattedModel} ${formattedColor}.jpeg`;
 
                 let imgContainer = document.createElement("div");
                 imgContainer.className = "image-container";
