@@ -19,11 +19,6 @@
     <label for="model">Select Model:</label>
     <select id="model" onchange="updateGallery()">
         <option value="">-- Choose Model --</option>
-        <option value="iPhone XS">iPhone XS</option>
-        <option value="iPhone XS Max">iPhone XS Max</option>
-        <option value="iPhone 11">iPhone 11</option>
-        <option value="iPhone 11 Pro">iPhone 11 Pro</option>
-        <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
         <option value="iPhone 12">iPhone 12</option>
         <option value="iPhone 12 Pro">iPhone 12 Pro</option>
         <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
@@ -36,22 +31,31 @@
         <option value="iPhone 15">iPhone 15</option>
         <option value="iPhone 15 Pro">iPhone 15 Pro</option>
         <option value="iPhone 15 Pro Max">iPhone 15 Pro Max</option>
-        <option value="iPhone 16">iPhone 16</option>
-        <option value="iPhone 16 Pro">iPhone 16 Pro</option>
-        <option value="iPhone 16 Pro Max">iPhone 16 Pro Max</option>
+        <option value="iPhone XS">iPhone XS</option>
+        <option value="iPhone XS Max">iPhone XS Max</option>
+        <option value="iPhone 11">iPhone 11</option>
+        <option value="iPhone 11 Pro">iPhone 11 Pro</option>
+        <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
     </select>
 
     <label for="color">Select Color:</label>
     <select id="color" onchange="updateGallery()">
         <option value="">-- Choose Color --</option>
-        <option value="Silver">Silver</option>
-        <option value="Graphite">Graphite</option>
-        <option value="Gold">Gold</option>
+        <option value="Black">Black</option>
         <option value="Blue">Blue</option>
         <option value="Green">Green</option>
-        <option value="Black">Black</option>
-        <option value="White">White</option>
+        <option value="Gold">Gold</option>
+        <option value="Graphite">Graphite</option>
+        <option value="Midnight">Midnight</option>
+        <option value="Pink">Pink</option>
+        <option value="Purple">Purple</option>
         <option value="Red">Red</option>
+        <option value="Silver">Silver</option>
+        <option value="Space Gray">Space Gray</option>
+        <option value="Starlight">Starlight</option>
+        <option value="Titanium">Titanium</option>
+        <option value="White">White</option>
+        <option value="Yellow">Yellow</option>
     </select>
 
     <div id="gallery"></div>
@@ -67,7 +71,7 @@
             gallery.innerHTML = ""; // Clear previous images
 
             if (model && color) {
-                let imagePath = `https://example.com/images/${model.replace(/\s+/g, '-')}-${color}.jpg`;
+                let imagePath = `https://yourimagehost.com/${model.toLowerCase().replace(/\s+/g, '-')}-${color.toLowerCase().replace(/\s+/g, '-')}.jpeg`;
 
                 let imgContainer = document.createElement("div");
                 imgContainer.className = "image-container";
